@@ -146,9 +146,9 @@ It allows:
 - Replay protection
 - Automated payment flows (AI, subscriptions, bursts, etc.)
 
-#### Signature Structure
-
-transferWithAuthorization(
+#### Signature Structure:
+  ```ts
+    transferWithAuthorization(
     address from,
     address to,
     uint256 value,
@@ -159,6 +159,21 @@ transferWithAuthorization(
     bytes32 r,
     bytes32 s
 )
+    
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Key behaviors:
 
