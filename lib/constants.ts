@@ -9,6 +9,7 @@ export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://loca
 export const API_ENDPOINTS = {
   BASIC: `${API_BASE_URL}/api/basic`,
   PREMIUM: `${API_BASE_URL}/api/premium`,
+  ENTERPRISE: `${API_BASE_URL}/api/enterprise`,
 } as const;
 
 // Payment Amounts (USDC with 6 decimals)
@@ -21,4 +22,10 @@ export const PAYMENT_AMOUNTS = {
     amount: "150000", // $0.15 USDC
     bigInt: BigInt(150000),
   },
+  ENTERPRISE: {
+    amount: "500000", // $0.50 USDC
+    bigInt: BigInt(500000),
+  },
 } as const;
+
+export const TOKEN_DISPLAY_NAME = "USDC.e (JPYC demo)";

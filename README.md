@@ -1,78 +1,37 @@
-# x402 Starter Kit
+# Balance Rail
 
-HTTP 402 payment integration with Thirdweb on Avalanche Fuji testnet.
+Balance Rail is a prepaid-friendly, automated micropayment system where each payment contributes to future value. It runs on Avalanche Fuji using x402 for programmable payments. In production the prepaid asset would be **JPYC (ERC-20 JPY stablecoin)**; in this demo we use **USDC.e on Fuji as a stand-in**.
 
-## Setup
+## Core Pillars
+- **Smart Envelope** — structured payment events with metadata, status, and optional micro-task validation.
+- **Prepaid Balance** — user-friendly balance layer with top-up, auto-charge logic, and split processing.
+- **AI NISA (AI-managed micro-investment vault)** — tiny residuals from payments accumulate into a low-risk, AI-managed vault.
 
+## What’s in this prototype
+- Avalanche Fuji + x402 payment flow (TransferWithAuthorization) still intact.
+- Three tiers aligned to use cases: daily spend (Basic), subscription bundle (Premium), AI NISA vault focus (Enterprise).
+- Activity / Smart Envelope feed showing status transitions per payment attempt.
+- Simulated AI NISA vault balance that grows by a small percentage of successful payments.
+- ERC-8004 agent metadata surfaced in the UI to indicate agent-governed split logic.
+
+## Stack
+- Next.js 16 (Turbopack), TypeScript, Tailwind, shadcn/ui
+- Thirdweb SDK v5 + x402
+
+## Quickstart
 ```bash
-git clone https://github.com/federiconardelli7/x402-starter-kit.git
-cd x402-starter-kit
 npm install
-```
-
-## Thirdweb Setup
-
-### 1. Create Thirdweb Account
-1. Go to [Thirdweb Dashboard](https://thirdweb.com/dashboard)
-2. **Log in with your wallet** (connect your wallet to the dashboard)
-3. Create a new project or use an existing one
-4. Get your **Client ID** and **Secret Key** from the project
-
-### 2. Set Up Facilitator Wallet (ERC4337 Smart Account)
-
-**IMPORTANT:** The `THIRDWEB_SERVER_WALLET_ADDRESS` is the **facilitator address** used for transaction processing.
-
-**You MUST use an ERC4337 Smart Account:**
-1. In the Thirdweb dashboard, go to **Server Wallets** section
-2. Click the switch button **Show ERC4337 Smart Account** 
-3. Switch to the network (for example Avalanche Fuji Testnet)
-3. Copy the smart account address - this will be your `THIRDWEB_SERVER_WALLET_ADDRESS`
-4. Send some testnet token to that address that will pay the gas fee.
-
-**IMPORTANT:** Do NOT use ERC-7702 accounts. Only ERC4337 Smart Accounts are supported as facilitators for some networks.
-
-## Configuration
-
-Copy `.env.example` to `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-Fill in the required values:
-
-- `NEXT_PUBLIC_THIRDWEB_CLIENT_ID` - Your Thirdweb client ID 
-- `THIRDWEB_SECRET_KEY` - Your Thirdweb secret key 
-- `THIRDWEB_SERVER_WALLET_ADDRESS` - **Facilitator address** (ERC4337 Smart Account address)
-- `MERCHANT_WALLET_ADDRESS` - Payment recipient wallet address 
-
-## Development
-
-```bash
 npm run dev
+# open http://localhost:3000
 ```
+`.env.local` should already be configured locally. Do **not** commit secrets. Existing env vars: `NEXT_PUBLIC_THIRDWEB_CLIENT_ID`, `THIRDWEB_SECRET_KEY`, `THIRDWEB_SERVER_WALLET_ADDRESS` (ERC4337 facilitator), `MERCHANT_WALLET_ADDRESS`, `NEXT_PUBLIC_API_BASE_URL` (optional).
 
-Open http://localhost:3000
+## Notes for Evaluators
+- Payments are denominated in **USDC.e (JPYC demo)**; contract address remains unchanged for Fuji.
+- Each payment attempt emits a Smart Envelope entry with state (INITIATED → AUTHORIZED → COMPLETED/FAILED).
+- A small percent of each successful payment is routed to the simulated **AI NISA Vault** in the UI only.
+- ERC-8004 agent metadata is exposed to highlight the governance layer for balance splits.
 
-## Build
-
-```bash
-npm run build
-npm start
-```
-
-## Features
-
-- HTTP 402 payment protocol implementation
-- Two payment tiers (Basic: $0.01, Premium: $0.15)
-- Automatic signature normalization for Avalanche Fuji
-- Real-time transaction logging
-- Modern UI with shadcn components
-
-## Technical Stack
-
-- Next.js 16
-- Thirdweb SDK v5
-- TypeScript
-- Tailwind CSS
-- shadcn/ui components
+## Further Reading
+- Requirements: `docs/requirements.en.md`
+- Repo URL: https://github.com/0x-xrpl/balance-rail

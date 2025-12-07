@@ -9,22 +9,35 @@ interface PaymentCardProps {
   features?: string[];
   onPayClick: () => void;
   isPaying: boolean;
+  badgeLabel?: string;
+  currencyLabel?: string;
 }
 
-export function PaymentCard({ tier, price, description, features, onPayClick, isPaying }: PaymentCardProps) {
+export function PaymentCard({
+  tier,
+  price,
+  description,
+  features,
+  onPayClick,
+  isPaying,
+  badgeLabel,
+  currencyLabel = "USDC",
+}: PaymentCardProps) {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl">{tier}</CardTitle>
           <Badge variant={tier === "Premium" ? "default" : "secondary"}>
-            {tier === "Premium" ? "Hot" : "Popular"}
+            {badgeLabel || (tier === "Premium" ? "Hot" : "Popular")}
           </Badge>
         </div>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="text-4xl font-bold mb-4">{price} <span className="text-sm text-muted-foreground">USDC</span></div>
+        <div className="text-4xl font-bold mb-4">
+          {price} <span className="text-sm text-muted-foreground">{currencyLabel}</span>
+        </div>
         {features && features.length > 0 && (
           <ul className="space-y-2">
             {features.map((feature, index) => (
