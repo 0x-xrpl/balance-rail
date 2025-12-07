@@ -160,22 +160,39 @@ It allows:
     bytes32 s
 )
 ```
-Key behaviors:
+Usage in Balance Rail:
+* Merchant-paid gas
+* AI-triggered automated payments
+* Subscription-like recurring flows
+* Micropayment bursts (frequent low-value events)
 
-- `validAfter` / `validBefore` define the execution window
-- `nonce` guarantees one-time use
-- `v,r,s` encode user authorization
-- Facilitator covers on-chain gas
+### 4.3 ERC-8004 — Automated Payment Modules
+ERC-8004 complements x402 by enabling:
+* Condition-based automated payments
+* Usage-based tariffs (pay-per-use)
+* AI-agent mediated transactions
+* Multi-step programmable settlement
 
-This enables:
+In Balance Rail, ERC-8004 powers:
+* Smart Charge logic
+* AI-agent to merchant payments
+* Envelope-driven micro-task validation
 
-- Gasless recurring payments
-- Agent-triggered automation
-- Prepaid micropayment bursts
-- Stable UX under high-frequency events
+### 4.4 Facilitator
+A critical infrastructure component.
+
+Responsibilities:
+* Submit EIP-3009 signed messages
+* Pay gas fees
+* Update Envelope verification status
+* Enforce proper nonce usage
+* Maintain secure settlement
+
+Security:
+* Single-use signatures
+* Time windows
+* Replay protection
+* AI anomaly detection
+
+### 5. System Architecture Layers
 </pre>
-
-Core Principles:
-* AI never receives direct token spending authority
-* All payments require one-time E*
-
