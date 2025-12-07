@@ -254,7 +254,7 @@ balance-rail/
 │
 └─ Other config files           # next.config.ts / tailwind.config.ts / package.json
 </pre>
-# 7. Security & Safety Model (AI-Debit Architecture)
+## 7. Security & Safety Model (AI-Debit Architecture)
 
 Balance Rail introduces AI-assisted debit-style safety, ensuring automation never becomes uncontrollable.
 
@@ -277,12 +277,14 @@ Triggers include:
 ## 7.3 Smart Charge Logic
 
 Sample rule:
+<pre>
 IF balance < 5,000 JPYC
 THEN add 10,000 JPYC
-
+</pre>
 AI considers:
 
 - Spending trends
 - Predicted needs
 - Safety margin
 - User-defined risk tolerance
+
