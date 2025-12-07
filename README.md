@@ -147,6 +147,26 @@ What it enables:
 
 Signature structure:
 
+Signature structure:
+<pre> function transferWithAuthorization( address from, address to, uint256 value, uint256 validAfter, uint256 validBefore, bytes32 nonce, uint8 v, bytes32 r, bytes32 s ); </pre>
+Usage in Balance Rail
+
+Merchant-paid gas
+
+AI-triggered automated payments
+
+Subscription-like recurring flows
+
+Micropayment bursts (frequent low-value events)
+
+
+
+
+
+
+
+
+
 ```solidity
 function transferWithAuthorization(
     address from,
@@ -167,6 +187,19 @@ function transferWithAuthorization(
 - AI-triggered automated payments  
 - Subscription-like recurring flows  
 - Micropayment bursts (frequent low-value events)
+
+
+
+
+
+
+
+
+
+＿＿＿
+
+
+
 
 
 ＿＿＿
