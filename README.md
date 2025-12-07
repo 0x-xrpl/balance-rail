@@ -159,6 +159,8 @@ function transferWithAuthorization(
     bytes32 r,
     bytes32 s
 );
+
+<pre>
 ### Usage in Balance Rail
 
 - Merchant-paid gas  
