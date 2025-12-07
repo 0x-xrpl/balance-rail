@@ -195,4 +195,39 @@ Security:
 * AI anomaly detection
 
 ### 5. System Architecture Layers
+<pre>
+Balance Rail Architecture
+├─ 1. Presentation Layer (UI / UX)
+│   ├─ Dashboard (Balance / AI NISA / Activity)
+│   ├─ Top-up & Auto-Charge UI
+│   ├─ Payment Request Modal
+│   └─ Developer API Console
+│
+├─ 2. Application Layer
+│   ├─ Envelope Controller
+│   ├─ Payment Processor (x402 Request Handler)
+│   ├─ Auto-Charge Engine
+│   └─ AI NISA Allocation Service
+│
+├─ 3. Domain Layer
+│   ├─ Smart Envelope Model
+│   ├─ Balance Model
+│   ├─ Fee Split & Routing Logic
+│   ├─ Risk / Anomaly Detection
+│   └─ Rule-Based Spending Policies
+│
+├─ 4. Infrastructure Layer
+│   ├─ x402 Client
+│   ├─ EIP-3009 Signer
+│   ├─ Facilitator On-Chain Executor
+│   ├─ JPYC / USDC.e Token Registry
+│   ├─ RPC / Node Provider
+│   └─ Storage (Session / Local / IndexedDB)
+│
+└─ 5. External Integrations
+    ├─ AI Models (AI NISA)
+    ├─ Merchant Settlement Webhooks
+    ├─ API Monetization Modules
+    └─ Accounting Export Tools
 </pre>
+### 6. Directory Structure
