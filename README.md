@@ -2,22 +2,26 @@
 
 Transforming everyday payments into a source of future value through AI, prepaid balance, and x402 automation.
 
+> Language  
+> - **English** (default)  
+> - **日本語はページ下部の「日本語 (Japanese)」をクリックして展開**
+
 ---
 
 ## 1. Overview
 
 Balance Rail is an AI-native prepaid payment operating system that integrates:
 
-- Prepaid balance (JPYC)  
-- Gasless settlement through x402 + EIP-3009  
+- Prepaid balance (JPYC)
+- Gasless settlement through x402 + EIP-3009
 - AI-driven micro-investment (AI NISA Vault)
 
 The system enables a payment experience where users:
 
-- Do not manage gas  
-- Do not handle complex wallet operations  
-- Can pay repeatedly in small amounts  
-- Automatically accumulate future value from residual micro-amounts  
+- Do not manage gas
+- Do not handle complex wallet operations
+- Can pay repeatedly in small amounts
+- Automatically accumulate future value from residual micro-amounts
 
 Balance Rail provides a cohesive, intuitive, and globally scalable foundation designed for markets with high-frequency micropayments.
 
@@ -29,17 +33,17 @@ Balance Rail provides a cohesive, intuitive, and globally scalable foundation de
 
 Japan is one of the world’s strongest prepaid-native economies, dominated by:
 
-- Suica / PASMO  
-- PayPay  
-- Rakuten Pay  
+- Suica / PASMO
+- PayPay
+- Rakuten Pay
 - Point ecosystems (Ponta, T-Point, Rakuten Points)
 
 Japanese users prefer:
 
-- Prepayment over postpayment  
-- Predictable spending  
-- Small, frequent purchases  
-- Frictionless UX without gas or complex approvals  
+- Prepayment over postpayment
+- Predictable spending
+- Small, frequent purchases
+- Frictionless UX without gas or complex approvals
 
 This behavior aligns perfectly with the OS approach of Balance Rail.
 
@@ -47,12 +51,12 @@ This behavior aligns perfectly with the OS approach of Balance Rail.
 
 Current on-chain payment systems suffer from:
 
-- Gas costs breaking UX flow  
-- Wallet signing friction  
-- Poor support for micropayments  
-- No automated top-ups  
-- No connection between payments → savings → future value  
-- Underutilized AI for financial prediction and optimization  
+- Gas costs breaking UX flow
+- Wallet signing friction
+- Poor support for micropayments
+- No automated top-ups
+- No connection between payments → savings → future value
+- Underutilized AI for financial prediction and optimization
 
 Balance Rail resolves these issues through an integrated, OS-level architecture.
 
@@ -64,50 +68,51 @@ Balance Rail is built on three foundational layers:
 
 ### 3.1 Smart Envelope Layer (x402 Autonomous Events)
 
-Each payment event becomes a Smart Envelope that stores:
+Each payment event becomes a **Smart Envelope** that stores:
 
-- Transaction metadata  
-- Verification status  
-- Facilitator signature  
-- AI evaluation logs  
-- Split computation results  
+- Transaction metadata
+- Verification status
+- Facilitator signature
+- AI evaluation logs
+- Split computation results
 
 Using x402, the system supports:
 
-- Deterministic execution  
-- Automated settlement  
-- Post-verification logic  
-- Transparent logging  
+- Deterministic execution
+- Automated settlement
+- Post-verification logic
+- Transparent logging
 
 ### 3.2 Prepaid Balance Layer (JPYC-based)
 
 JPYC is chosen because:
 
-- 1:1 JPY peg enables intuitive UX  
-- Aligns with Japanese prepaid culture  
-- Stable for micropayment-heavy environments  
-- Highly compatible with automated, agentic payment flows  
+- 1:1 JPY peg enables intuitive UX
+- Aligns with Japanese prepaid culture
+- Stable for micropayment-heavy environments
+- Highly compatible with automated, agentic payment flows
 
 Functions include:
 
-- Top-up  
-- Auto-charge via programmable conditions  
-- Split logic (user balance / AI vault / fee)  
-- Safety controls: daily limits, anomaly freeze, safe mode  
+- Top-up
+- Auto-charge via programmable conditions
+- Split logic (user balance / AI vault / fee)
+- Safety controls: daily limits, anomaly freeze, safe mode
 
 ### 3.3 AI NISA (AI-Managed Micro-Investment Vault)
 
-AI NISA is a micro-investment vault, not tied to any local tax scheme.  
+AI NISA is a micro-investment vault, **not** tied to any local tax scheme.
+
 It automatically collects:
 
-- Sub-unit residual value from payments  
-- “Invisible” financial fragments that are normally lost  
+- Sub-unit residual value from payments
+- “Invisible” financial fragments that are normally lost
 
 AI then optimizes these micro-values using:
 
-- Low-risk aggregation strategies  
-- Data-driven allocation  
-- Spending behavior prediction  
+- Low-risk aggregation strategies
+- Data-driven allocation
+- Spending behavior prediction
 
 It turns Web3 payments into a continuous value-generation process.
 
@@ -119,18 +124,18 @@ It turns Web3 payments into a continuous value-generation process.
 
 Balance Rail implements the modern interpretation of HTTP 402 Payment Required, enabling:
 
-- Per-request charging  
-- API-native monetization  
-- Sub-cent micropayments  
-- Agent-to-agent payments  
+- Per-request charging
+- API-native monetization
+- Sub-cent micropayments
+- Agent-to-agent payments
 
 Flow:
 
 1. Client → Request  
-2. Server → 402 Payment Required  
+2. Server → `402 Payment Required`  
 3. Client → `transferWithAuthorization` (EIP-3009)  
 4. Facilitator → Submits on-chain  
-5. Server → Returns resource  
+5. Server → Returns resource
 
 This gives users a gasless, accountless payment experience.
 
@@ -138,16 +143,16 @@ This gives users a gasless, accountless payment experience.
 
 This is the core mechanism behind gasless prepaid payments.
 
-What it enables:
+**What it enables:**
 
-- User signs once → no gas required  
-- Facilitator pays gas on behalf  
-- Nonce ensures one-time use  
-- Time-bounded authorization for safety  
+- User signs once → no gas required
+- Facilitator pays gas on behalf
+- Nonce ensures one-time use
+- Time-bounded authorization for safety
 
-Signature structure:
+**Signature structure:**
 
-```solidity
+solidity
 function transferWithAuthorization(
     address from,
     address to,
@@ -409,7 +414,7 @@ AI-driven micro-value optimization
 It delivers an AI-Native Prepaid Payment OS where each payment becomes an act of value creation.
 This system not only improves user experience but opens the door to a new global financial layer for automated micropayments.
 
-<details> <summary>日本語（Japanese）</summary> <br>
+<details> <summary>日本語 (Japanese)</summary> <br>
 Balance Rail — AI-Native Prepaid Payment OS
 プリペイド文化 × AI × x402 によって、日常決済を“未来価値の生成行為”に変換する新しい決済 OS
 
@@ -490,6 +495,7 @@ AI インタラクションのログ化
 Balance Rail の中心となる残高管理レイヤーです。
 
 採用理由：JPYC
+
 JPYC は以下の理由から最適です。
 
 日本円と 1:1 で価値が安定
@@ -503,6 +509,7 @@ JPYC 公式が Web3 / RWA / プリペイド文化との統合に積極的
 “プリペイド文化の継承 × Web3 の橋渡し” として日本で最も自然に受容される通貨です。
 
 機能
+
 トップアップ（チャージ）
 
 オートチャージ（Smart Charge）
@@ -515,6 +522,7 @@ JPYC 公式が Web3 / RWA / プリペイド文化との統合に積極的
 Balance Rail を世界で唯一の存在にしている中核です。
 
 “AI NISA” のコンセプト
+
 決済のたびに発生する「1円未満の余白価値」を自動で蓄積
 
 AI がリスク許容度に応じて最適化
@@ -545,6 +553,7 @@ EIP-3009 はガスレス決済の中心技術であり、
 Balance Rail の “プリペイド × AI × ガスレス” 体験を支えています。
 
 この仕組みによって可能になること
+
 ユーザーはガス代を持たなくてよい
 
 署名だけで決済が成立
@@ -554,6 +563,7 @@ Balance Rail の “プリペイド × AI × ガスレス” 体験を支えて�
 署名は 1 回限りで安全
 
 サンプル構造（簡略）
+
 solidity
 コードをコピーする
 function transferWithAuthorization(
@@ -568,6 +578,7 @@ function transferWithAuthorization(
     bytes32 s
 );
 Balance Rail での利用用途
+
 ガスレス支払い
 
 マーチャント側がガス負担
@@ -601,6 +612,7 @@ Pay-per-use 型サービスの構築
 Balance Rail では必須コンポーネントです。
 
 役割
+
 EIP-3009 の署名をオンチェーンに送信
 
 ガス代を負担
@@ -610,6 +622,7 @@ EIP-3009 の署名をオンチェーンに送信
 Envelope の検証（x402）とステータス更新
 
 実際の挙動
+
 User → 署名を作成
 
 Facilitator → ガスを使って送信
@@ -619,6 +632,7 @@ Contract → 決済を成立
 Server → 状態更新
 
 セキュリティ
+
 署名は一度限りで使い捨て
 
 nonce により再利用不可
