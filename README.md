@@ -148,7 +148,6 @@ It allows:
 
 #### Signature Structure:
   ```ts
-  {
     transferWithAuthorization(
     address from,
     address to,
@@ -160,22 +159,7 @@ It allows:
     bytes32 r,
     bytes32 s
 )
-    
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Key behaviors:
 
 - `validAfter` / `validBefore` define the execution window
