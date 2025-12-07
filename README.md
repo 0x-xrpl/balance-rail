@@ -148,6 +148,7 @@ It allows:
 
 #### Signature Structure:
   ```ts
+  {
     transferWithAuthorization(
     address from,
     address to,
