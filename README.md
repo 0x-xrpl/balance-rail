@@ -159,6 +159,12 @@ function transferWithAuthorization(
     bytes32 r,
     bytes32 s
 );
+### Usage in Balance Rail
+
+- Merchant-paid gas  
+- AI-triggered automated payments  
+- Subscription-like recurring flows  
+- Micropayment bursts (frequent low-value events)
 
 
 ＿＿＿
