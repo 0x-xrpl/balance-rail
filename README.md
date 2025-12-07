@@ -231,3 +231,58 @@ Balance Rail Architecture
     └─ Accounting Export Tools
 </pre>
 ### 6. Directory Structure
+<pre>
+balance-rail/
+├─ app/                         # Next.js App Router (UI screens)
+│   ├─ layout.tsx
+│   ├─ page.tsx
+│   └─ (dashboard)/...          # Balance / Activity / AI NISA pages
+│
+├─ components/                  # Reusable UI components
+│   ├─ ui/                      # shadcn/ui primitives
+│   └─ dashboard/               # Cards / Charts / Tables
+│
+├─ lib/
+│   ├─ x402/                    # x402 / EIP-3009 wrappers
+│   ├─ jpyc/                    # JPYC / USDC.e configurations
+│   ├─ envelopes/               # Smart Envelope models & logic
+│   └─ ai-nisa/                 # AI NISA vault logic
+│
+├─ docs/                        # Requirements & technical specs
+│   ├─ requirements.ja.md
+│   └─ requirements.en.md
+│
+└─ Other config files           # next.config.ts / tailwind.config.ts / package.json
+</pre>
+# 7. Security & Safety Model (AI-Debit Architecture)
+
+Balance Rail introduces AI-assisted debit-style safety, ensuring automation never becomes uncontrollable.
+
+## 7.1 Daily Spend Limit
+
+Users configure daily spending caps.
+
+- Recommended: 30–50% of prepaid balance
+- AI stops payments exceeding behavioral norms
+
+## 7.2 Auto-stop (Anomaly Freeze)
+
+Triggers include:
+
+- Unusual transaction frequency
+- Unexpected geographical patterns
+- High-value outliers
+- Envelope inconsistencies
+
+## 7.3 Smart Charge Logic
+
+Sample rule:
+IF balance < 5,000 JPYC
+THEN add 10,000 JPYC
+
+AI considers:
+
+- Spending trends
+- Predicted needs
+- Safety margin
+- User-defined risk tolerance
