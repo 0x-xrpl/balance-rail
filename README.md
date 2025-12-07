@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Balance Rail — AI-Native Prepaid Payment OS
 
 Transforming everyday payments into a source of future value through AI, prepaid balance, and x402 automation.
@@ -357,6 +358,65 @@ Using x402, the system supports:
 * Post-verification logic
 * Transparent logging
 
+=======
+<details open><summary>English</summary>
+
+# Balance Rail — AI-Native Prepaid Payment OS
+Transforming everyday payments into a source of future value through AI, prepaid balance, and x402 automation.
+
+1. Overview
+Balance Rail is an AI-native prepaid payment operating system that integrates:
+* Prepaid balance (JPYC)
+* Gasless settlement through x402 + EIP-3009
+* AI-driven micro-investment (AI NISA Vault)
+The system enables a payment experience where users:
+* Do not manage gas
+* Do not handle complex wallet operations
+* Can pay repeatedly in small amounts
+* Automatically accumulate future value from residual micro-amounts
+Balance Rail provides a cohesive, intuitive, and globally scalable foundation designed for markets with high-frequency micropayments.
+
+2. Background & Problem
+2.1 Market Context
+Japan is one of the world’s strongest prepaid-native economies, dominated by:
+* Suica / PASMO
+* PayPay
+* Rakuten Pay
+* Point ecosystems (Ponta, T-Point, Rakuten Points)
+Japanese users prefer:
+* Prepayment over postpayment
+* Predictable spending
+* Small, frequent purchases
+* Frictionless UX without gas or complex approvals
+This behavior aligns perfectly with the OS approach of Balance Rail.
+
+2.2 Existing Issues in Web3 Payments
+Current on-chain payment systems suffer from:
+* Gas costs breaking UX flow
+* Wallet signing friction
+* Poor support for micropayments
+* No automated top-ups
+* No connection between payments → savings → future value
+* Underutilized AI for financial prediction and optimization
+Balance Rail resolves these issues through an integrated, OS-level architecture.
+
+3. Solution Structure
+Balance Rail is built on three foundational layers:
+
+① Smart Envelope Layer (x402 Autonomous Events)
+Each payment event becomes a Smart Envelope that stores:
+* Transaction metadata
+* Verification status
+* Facilitator signature
+* AI evaluation logs
+* Split computation results
+Using x402, the system supports:
+* Deterministic execution
+* Automated settlement
+* Post-verification logic
+* Transparent logging
+
+>>>>>>> 334daf1 (Update README language toggles)
 ② Prepaid Balance Layer (JPYC-based)
 JPYC is chosen because:
 * 1:1 JPY peg enables intuitive UX
