@@ -134,16 +134,20 @@ Flow:
 
 This gives users a gasless, accountless payment experience.
 
-<pre>
-4.2 EIP-3009 — transferWithAuthorization
-This is the core mechanism behind gasless prepaid payments.
-What it enables:
-* User signs once → no gas required
-* Facilitator pays gas on behalf
-* Nonce ensures one-time use
-* Time-bounded authorization for safety
+### 4.2 EIP-3009 — transferWithAuthorization
 
-Signature structure:
+EIP-3009 is the cryptographic core that enables **gasless prepaid payments** inside Balance Rail.
+
+It allows:
+
+- One-time signatures
+- No gas from the user
+- Secure facilitator execution
+- Replay protection
+- Automated payment flows (AI, subscriptions, bursts, etc.)
+
+#### Signature Structure
+
 transferWithAuthorization(
     address from,
     address to,
@@ -151,108 +155,25 @@ transferWithAuthorization(
     uint256 validAfter,
     uint256 validBefore,
     bytes32 nonce,
-    uint8 v, bytes32 r, bytes32 s
+    uint8 v,
+    bytes32 r,
+    bytes32 s
 )
 
-Usage in Balance Rail:
-* Merchant-paid gas
-* AI-triggered automated payments
-* Subscription-like recurring flows
-* Micropayment bursts (frequent low-value events)
+Key behaviors:
 
+- `validAfter` / `validBefore` define the execution window
+- `nonce` guarantees one-time use
+- `v,r,s` encode user authorization
+- Facilitator covers on-chain gas
 
-4.3 ERC-8004 — Automated Payment Modules
-ERC-8004 complements x402 by enabling:
-* Condition-based automated payments
-* Usage-based tariffs (pay-per-use)
-* AI-agent mediated transactions
-* Multi-step programmable settlement
+This enables:
 
-In Balance Rail, ERC-8004 powers:
-* Smart Charge logic
-* AI-agent to merchant payments
-* Envelope-driven micro-task validation
-
-
-4.4 Facilitator
-A critical infrastructure component.
-
-Responsibilities:
-* Submit EIP-3009 signed messages
-* Pay gas fees
-* Update Envelope verification status
-* Enforce proper nonce usage
-* Maintain secure settlement
-
-Security:
-* Single-use signatures
-* Time windows
-* Replay protection
-* AI anomaly detection
-
-
-5. System Architecture Layers
-Balance Rail Architecture
-├─ 1. Presentation Layer (UI / UX)
-│    ├─ Dashboard (Balance / AI NISA / Activity)
-│    ├─ Top-up & Auto-Charge UI
-│    ├─ Payment Request Modal
-│    └─ Developer API Console
-│
-├─ 2. Application Layer
-│    ├─ Envelope Controller
-│    ├─ Payment Processor (x402 Request Handler)
-│    ├─ Auto-Charge Engine
-│    └─ AI NISA Allocation Service
-│
-├─ 3. Domain Layer
-│    ├─ Smart Envelope Model
-│    ├─ Balance Model
-│    ├─ Fee Split & Routing Logic
-│    ├─ Risk / Anomaly Detection
-│    └─ Rule-Based Spending Policies
-│
-├─ 4. Infrastructure Layer
-│    ├─ x402 Client
-│    ├─ EIP-3009 Signer
-│    ├─ Facilitator On-Chain Executor
-│    ├─ JPYC / USDC.e Token Registry
-│    ├─ RPC / Node Provider
-│    └─ Storage (Session / Local / IndexedDB)
-│
-└─ 5. External Integrations
-     ├─ AI Models (AI NISA)
-     ├─ Merchant Settlement Webhooks
-     ├─ API Monetization Modules
-     └─ Accounting Export Tools
-
-
-6. Directory Structure
-balance-rail/
-├─ app/
-│   ├─ layout.tsx
-│   ├─ page.tsx
-│   └─ (dashboard)/...
-│
-├─ components/
-│   ├─ ui/
-│   └─ dashboard/
-│
-├─ lib/
-│   ├─ x402/
-│   ├─ jpyc/
-│   ├─ envelopes/
-│   └─ ai-nisa/
-│
-├─ docs/
-│   ├─ requirements.ja.md
-│   └─ requirements.en.md
-│
-└─ other config files
-
-
-7. Security & Safety Model (AI-Debit Architecture)
-Balance Rail introduces AI-assisted debit-style safety, ensuring automation never becomes uncontrollable.
+- Gasless recurring payments
+- Agent-triggered automation
+- Prepaid micropayment bursts
+- Stable UX under high-frequency events
+</pre>
 
 Core Principles:
 * AI never receives direct token spending authority
